@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenWash Finder | Expose Deceptive Eco-Claims & Corporate Greenwashing</title>
+    <meta name="description"
+        content="GreenWash Finder is an interactive platform auditing corporate eco-claims, evaluating greenwashing risk scores, decoding e-commerce buzzwords into plain English with 1-5 star ratings.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌿</div>
+                <span>GreenWash<span class="text-emerald">Finder</span></span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-tab="ecom">Shopping Verifier 🛒</a></li>
+                    <li><a href="#" class="nav-link" data-tab="database">Brand Database</a></li>
+                    <li><a href="#" class="nav-link" data-tab="scanner">Risk Scanner</a></li>
+                    <li><a href="#" class="nav-link" data-tab="tactics">Tactics & Quiz</a></li>
+                    <li><a href="#" class="nav-link" data-tab="compare">Compare Brands</a></li>
+                    <li><a href="#" class="nav-link" data-tab="reports">Community Feed</a></li>
+                    <li><a href="#" class="nav-link" data-tab="insights">Data Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggleBtn" title="Toggle Theme">☀️</button>
+                <button class="btn btn-primary btn-sm" id="openSubmitReportBtn">Report Claim 🚨</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span>🛡️ Independent Eco-Claim Audit Platform</span>
+            </div>
+            <h1 class="hero-title">Expose Deceptive Eco-Claims.<br><span class="gradient-text">Empower True
+                    Sustainability.</span></h1>
+            <p class="hero-subtitle">
+                Verify any e-commerce product in plain English. Convert corporate green jargon into 1–5 star ratings,
+                bulleted explanations, and verified natural metrics.
+            </p>
+
+            <!-- Quick Search Bar -->
+            <div class="search-box-wrap">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="quickSearchInput" class="search-input"
+                        placeholder="Search brand name, product, or eco-buzzword (e.g. '100% Recyclable', 'Net Zero')...">
+                </div>
+                <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+            </div>
+
+            <!-- Stats Counters -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-brands">0</div>
+                    <div class="stat-label">Brands Audited</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-claims">0</div>
+                    <div class="stat-label">Deceptive Claims Flagged</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-products">0</div>
+                    <div class="stat-label">Verified Genuine Products</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-reports">0</div>
+                    <div class="stat-label">Community Audit Reports</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Tabs Area -->
+    <main class="container" id="main-content">
+        <!-- Section Navigation Buttons -->
+        <div class="section-nav">
+            <button class="tab-btn active" data-tab="ecom">🛒 Shopping Verifier & Jargon Decoder</button>
+            <button class="tab-btn" data-tab="database">🔍 Brand Database</button>
+            <button class="tab-btn" data-tab="scanner">⚡ Risk Calculator</button>
+            <button class="tab-btn" data-tab="tactics">📚 Tactics & Quiz</button>
+            <button class="tab-btn" data-tab="compare">⚖️ Side-by-Side Compare</button>
+            <button class="tab-btn" data-tab="reports">📢 Community Feed</button>
+            <button class="tab-btn" data-tab="insights">📊 Data Dashboard</button>
+        </div>
+
+        <!-- Section 0 (Featured): E-Commerce Product Verifier & Jargon Decoder -->
+        <section id="ecom-section" class="view-section active">
+            <div class="verifier-card">
+                <div style="text-align:center; max-width:720px; margin:0 auto 2rem;">
+                    <h2>🛒 E-Commerce Product Sustainability & Jargon Verifier</h2>
+                    <p style="color:var(--text-secondary); margin-top:0.5rem;">
+                        Shopping online? Paste any product URL, title, or marketing description below to generate a
+                        <strong>1 to 5 Star Natural Rating</strong>, decode corporate jargon into plain English, and
+                        view a clear bulleted breakdown.
+                    </p>
+                </div>
+
+                <!-- Input & Preset Buttons -->
+                <div style="max-width:800px; margin:0 auto 2rem;">
+                    <label class="form-label">Try 1-Click Sample Products or Paste Any E-Commerce Claim:</label>
+                    <div class="sample-preset-pills" id="ecomPresetsContainer"></div>
+
+                    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <textarea id="ecomTextInput" class="text-input"
+                            style="flex:1; min-width:280px; height:76px; font-family:inherit;"
+                            placeholder="Paste product URL or marketing text (e.g. '100% Bio-Derived Active Complex in Ocean-Bound Plastic Packaging')..."></textarea>
+                        <button class="btn btn-primary" id="verifyEcomBtn" style="align-self:stretch;">Verify Product
+                            🔍</button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Results Display Area -->
+                <div class="ecom-verifier-grid" id="ecomResultsContainer" style="max-width:960px; margin:0 auto;"></div>
+            </div>
+        </section>
+
+        <!-- Section 1: Brand & Product Database -->
+        <section id="database-section" class="view-section">
+            <div class="filter-toolbar">
+                <div class="filter-group">
+                    <span class="filter-label">Industry:</span>
+                    <select id="filterIndustry" class="select-input"></select>
+
+                    <span class="filter-label">Risk Level:</span>
+                    <select id="filterRisk" class="select-input">
+                        <option value="All Tiers">All Tiers</option>
+                        <option value="High Risk">High Risk (70%+)</option>
+                        <option value="Suspicious">Suspicious (45%-69%)</option>
+                        <option value="Verified Genuine">Verified Genuine (&lt;45%)</option>
+                    </select>
+
+                    <span class="filter-label">Sort:</span>
+                    <select id="sortBrands" class="select-input">
+                        <option value="riskScoreDesc">Highest Risk First</option>
+                        <option value="riskScoreAsc">Lowest Risk First</option>
+                        <option value="nameAsc">Brand Name (A-Z)</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <input type="text" id="dbSearchInput" class="text-input" placeholder="Filter by keyword...">
+                    <span id="dbCountBadge" class="hero-badge" style="margin-bottom:0;">0 Brands</span>
+                </div>
+            </div>
+
+            <!-- Brands Grid Container -->
+            <div class="brands-grid" id="brandsGrid"></div>
+        </section>
+
+        <!-- Section 2: Greenwash Risk Scanner & Calculator -->
+        <section id="scanner-section" class="view-section">
+            <div class="calculator-card">
+                <div style="text-align:center; max-width:600px; margin:0 auto 2.5rem;">
+                    <h2>Interactive Greenwash Risk Scanner</h2>
+                    <p style="color:var(--text-secondary); margin-top:0.5rem;">
+                        Evaluate any marketing claim or product label. Select the attributes observed below to calculate
+                        an instant Greenwash Risk Index.
+                    </p>
+                </div>
+
+                <div class="calc-grid">
+                    <!-- Form Input Checklist -->
+                    <form id="scannerForm" onsubmit="return false;">
+                        <div class="form-group">
+                            <label class="form-label">Deceptive Risk Indicators (Select all that apply):</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcNoProof" checked>
+                                    <span>No easily accessible proof or scientific report published</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcVagueWords" checked>
+                                    <span>Uses vague buzzwords ("100% Eco-Friendly", "Natural", "Pure")</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcFakeSeal">
+                                    <span>Displays internal/self-created eco badge (not accredited)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcFuturePromise">
+                                    <span>Makes long-term promise ("Net-Zero 2050") without interim targets</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Genuine Verification Factors:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcVerified3rdParty">
+                                    <span>Independent 3rd party certification (GOTS, B-Corp, USDA Biobased)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="calcFullLCA">
+                                    <span>Full Life Cycle Assessment (LCA) data publicly available</span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Score Result Gauge Display -->
+                    <div class="score-result-panel">
+                        <div class="gauge-circle">
+                            <svg viewBox="0 0 160 160">
+                                <circle class="gauge-bg" cx="80" cy="80" r="70"></circle>
+                                <circle class="gauge-fill" id="gaugeFill" cx="80" cy="80" r="70"></circle>
+                            </svg>
+                            <div class="gauge-center-text">
+                                <div class="gauge-score" id="calcScoreValue">0%</div>
+                                <div class="gauge-sub">Risk Score</div>
+                            </div>
+                        </div>
+
+                        <div class="result-verdict" id="calcVerdict">Evaluating...</div>
+                        <div class="result-desc" id="calcDesc">Adjust the parameters to scan claim credibility.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Tactics Glossary & Interactive Quiz -->
+        <section id="tactics-section" class="view-section">
+            <div style="text-align:center; max-width:700px; margin:0 auto 2.5rem;">
+                <h2>The 7 Sins of Greenwashing Glossary</h2>
+                <p style="color:var(--text-secondary); margin-top:0.5rem;">
+                    Learn how corporate advertisers spin misleading environmental narratives to influence consumer
+                    perception.
+                </p>
+            </div>
+
+            <!-- Tactics Cards Grid -->
+            <div class="tactics-grid" id="tacticsGrid"></div>
+
+            <!-- Interactive Quiz Box -->
+            <div class="quiz-box">
+                <div style="display:flex; align-items:center; justify-space-between; margin-bottom:1.5rem;">
+                    <span class="hero-badge" style="margin:0;">🧠 Interactive Knowledge Check</span>
+                    <button class="btn btn-secondary btn-sm" id="nextQuizBtn" style="display:none;">Next Scenario
+                        →</button>
+                </div>
+                <h3 class="quiz-question-title">Spot the Greenwash!</h3>
+                <div class="quiz-scenario" id="quizScenario">Loading quiz scenario...</div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            </div>
+        </section>
+
+        <!-- Section 4: Side-by-Side Brand Comparison -->
+        <section id="compare-section" class="view-section">
+            <div style="text-align:center; max-width:700px; margin:0 auto 2.5rem;">
+                <h2>Side-by-Side Brand Audit Comparison</h2>
+                <p style="color:var(--text-secondary); margin-top:0.5rem;">
+                    Compare two brands directly on sustainability disclosures, greenwash risk index, recycled content,
+                    and regulatory notices.
+                </p>
+            </div>
+
+            <div class="comparison-wrap">
+                <div class="comparison-select-row">
+                    <div>
+                        <label class="form-label">Select Brand A:</label>
+                        <select id="compareBrand1" class="select-input" style="width:100%;"></select>
+                    </div>
+                    <div>
+                        <label class="form-label">Select Brand B:</label>
+                        <select id="compareBrand2" class="select-input" style="width:100%;"></select>
+                    </div>
+                </div>
+
+                <div id="comparisonTableContainer"></div>
+            </div>
+        </section>
+
+        <!-- Section 5: Community Claims Feed -->
+        <section id="reports-section" class="view-section">
+            <div
+                style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+                <div>
+                    <h2>Community Claims Audit Feed</h2>
+                    <p style="color:var(--text-secondary); margin-top:0.25rem;">
+                        Crowdsourced reports of misleading product claims submitted and verified by conscious consumers.
+                    </p>
+                </div>
+                <button class="btn btn-primary"
+                    onclick="document.getElementById('submitModal').classList.add('active')">Submit Suspicious Claim
+                    🚨</button>
+            </div>
+
+            <div class="reports-grid" id="reportsFeed"></div>
+        </section>
+
+        <!-- Section 6: Data Insights & Trends -->
+        <section id="insights-section" class="view-section">
+            <div style="text-align:center; max-width:700px; margin:0 auto 2.5rem;">
+                <h2>Data Insights & Corporate Transparency Trends</h2>
+                <p style="color:var(--text-secondary); margin-top:0.5rem;">
+                    Real-time aggregated metrics analyzing greenwash prevalence across industries and top misleading
+                    eco-buzzwords.
+                </p>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Greenwash Risk Index by Industry Sector</h3>
+                        <div class="chart-subtitle">Average risk score percentage based on 342 corporate audits</div>
+                    </div>
+                    <div class="svg-chart-container" id="industryChartContainer"></div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Most Overused Deceptive Eco-Buzzwords</h3>
+                        <div class="chart-subtitle">Frequency of unverified claims in corporate marketing</div>
+                    </div>
+                    <div class="svg-chart-container" id="buzzwordsChartContainer"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal 1: Audit & Tactic Detail Modal -->
+    <div class="modal-overlay" id="auditModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div id="auditModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Submit New Community Claim Modal -->
+    <div class="modal-overlay" id="submitModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2 style="margin-bottom:1rem;">Submit Suspicious Eco-Claim</h2>
+            <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.95rem;">
+                Report an unverified or deceptive marketing claim for community auditing.
+            </p>
+
+            <form id="claimSubmissionForm">
+                <div class="form-group">
+                    <label class="form-label">Brand Name:</label>
+                    <input type="text" id="subBrandName" class="text-input" style="width:100%;" required
+                        placeholder="e.g. EcoStyle Global">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Product Name / Line:</label>
+                    <input type="text" id="subProductName" class="text-input" style="width:100%;" required
+                        placeholder="e.g. 100% Bio-Plastic Water Bottle">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Advertised Marketing Claim:</label>
+                    <textarea id="subClaimText" class="text-input" style="width:100%; height:80px; font-family:inherit;"
+                        required placeholder="Quote the exact slogan or claim printed on packaging or ad..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Why is this misleading? (Evidence/Notes):</label>
+                    <textarea id="subEvidence" class="text-input" style="width:100%; height:80px; font-family:inherit;"
+                        required placeholder="Explain why this claim lacks proof or contradicts reality..."></textarea>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; gap:1rem; margin-top:1.5rem;">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="document.getElementById('submitModal').classList.remove('active')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Report 🚀</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo" style="margin-bottom:1rem;">
+                        <div class="logo-icon">🌿</div>
+                        <span>GreenWash<span class="text-emerald">Finder</span></span>
+                    </a>
+                    <p style="color:var(--text-secondary); font-size:0.9rem; max-width:320px;">
+                        An independent web application fighting corporate greenwashing through open data, risk scoring,
+                        and crowdsourced claim auditing.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-tab="ecom">Shopping Verifier</a></li>
+                        <li><a href="#" data-tab="database">Brand Database</a></li>
+                        <li><a href="#" data-tab="scanner">Risk Scanner</a></li>
+                        <li><a href="#" data-tab="tactics">Tactics Glossary</a></li>
+                        <li><a href="#" data-tab="insights">Data Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Regulations</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.ftc.gov/news-events/topics/truth-advertising/green-guides"
+                                target="_blank" rel="noopener">FTC Green Guides</a></li>
+                        <li><a href="https://environment.ec.europa.eu/topics/circular-economy/green-claims_en"
+                                target="_blank" rel="noopener">EU Green Claims Directive</a></li>
+                        <li><a href="https://www.iso.org/standard/23151.html" target="_blank" rel="noopener">ISO 14021
+                                Standards</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"
+                                onclick="document.getElementById('submitModal').classList.add('active'); return false;">Report
+                                Greenwash</a></li>
+                        <li><a href="#" data-tab="reports">Live Audit Feed</a></li>
+                        <li><a href="#" data-tab="tactics">Take Spot Quiz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GreenWash Finder. Open Environmental Transparency Project. Built with HTML5 & CSS3.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
