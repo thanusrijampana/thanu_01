@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXUS // TECH GEAR - Premium minimalist dark mode e-commerce storefront for next-gen cyber audio, wearables, and mechanical gear.">
+  <title>NEXUS // Next-Gen Tech Storefront</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. STICKY NAVIGATION BAR
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="logo" id="brand-logo">
+        <div class="logo-dot"></div>
+        <span>NEXUS</span>
+      </a>
+
+      <!-- Instant Search Bar -->
+      <div class="search-container">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" class="search-input" id="search-input" placeholder="Search headphones, keyboards, wearables..." aria-label="Search products">
+      </div>
+
+      <!-- Main Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#shop" class="nav-link">Shop</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#specs" class="nav-link">Specs</a></li>
+          <li><a href="#newsletter" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Cart Button & Mobile Menu Trigger -->
+      <div class="header-actions">
+        <button class="btn-icon cart-btn" id="cart-toggle-btn" aria-label="Open Shopping Cart">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge-count" id="cart-count">3</span>
+        </button>
+
+        <button class="btn-icon mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+    <!-- ==========================================
+         2. HERO SECTION
+         ========================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Hero Text & CTA Column -->
+        <div class="hero-content">
+          <div class="section-tag">
+            <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+            <span>NEW 2026 EDITION</span>
+          </div>
+          
+          <h1 class="hero-title">
+            THE NEXT GENERATION OF <span class="hero-title-highlight">CYBER GEAR.</span>
+          </h1>
+          
+          <p class="hero-description">
+            Experience ultra-low latency spatial audio, custom mechanical tactile switches, and high-frequency biometric wearables engineered for peak performative precision.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#shop" class="btn btn-primary" id="hero-cta-btn">
+              <span>Shop Now</span>
+              <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="#specs" class="btn btn-secondary">
+              <span>Explore Specs</span>
+            </a>
+          </div>
+
+          <!-- Social Proof Trust Bar -->
+          <div class="hero-trust">
+            <div class="trust-avatars">
+              <div class="trust-avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop');"></div>
+              <div class="trust-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop');"></div>
+              <div class="trust-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop');"></div>
+            </div>
+            <div class="trust-text">
+              <div class="trust-stars">★★★★★</div>
+              <span><strong>4.9/5 Rating</strong> from 14,000+ tech pros</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase Column -->
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            
+            <!-- Floating Feature Badges -->
+            <div class="hero-badge-float hero-badge-1">
+              <div class="hero-badge-icon">
+                <i data-lucide="sliders" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div class="hero-badge-info">
+                <h4>Active ANC 4.0</h4>
+                <p>-48dB Noise Isolation</p>
+              </div>
+            </div>
+
+            <div class="hero-badge-float hero-badge-2">
+              <div class="hero-badge-icon">
+                <i data-lucide="battery-charging" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div class="hero-badge-info">
+                <h4>65-Hour Battery</h4>
+                <p>Fast Charge via USB-C</p>
+              </div>
+            </div>
+
+            <!-- Main Flagship Hero Image -->
+            <img src="./assets/hero_headphone.png" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80';" 
+                 alt="NEXUS Flagship Headphones" 
+                 class="hero-image">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         3. CATEGORY QUICK FILTER BAR
+         ========================================== -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-bar">
+          
+          <div class="category-pills" id="category-pills">
+            <button class="pill-btn active" data-category="all">All Gear</button>
+            <button class="pill-btn" data-category="audio">Audio</button>
+            <button class="pill-btn" data-category="wearables">Wearables</button>
+            <button class="pill-btn" data-category="keyboards">Keyboards</button>
+            <button class="pill-btn" data-category="accessories">Accessories</button>
+          </div>
+
+          <div class="sort-select-wrapper">
+            <i data-lucide="arrow-down-up" style="width: 16px; height: 16px;"></i>
+            <select class="sort-select" id="sort-select" aria-label="Sort products">
+              <option value="featured">Featured First</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         4. FEATURED PRODUCT GRID
+         ========================================== -->
+    <section class="products-section" id="shop">
+      <div class="container">
+        
+        <div style="margin-bottom: 2.5rem;">
+          <div class="section-tag">
+            <i data-lucide="grid" style="width: 16px; height: 16px;"></i>
+            <span>CURATED SELECTION</span>
+          </div>
+          <h2 class="section-title">FEATURED STORE GEAR</h2>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+          
+          <!-- Product Card 1 -->
+          <article class="product-card" data-category="audio" data-price="299" data-rating="4.9">
+            <div class="product-card-top">
+              <span class="badge badge-neon product-badge-pos">NEW</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="./assets/hero_headphone.png" 
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80';" 
+                   alt="Nexus Pro ANC Headphones" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('Nexus Pro ANC Headphones', 299, 'Audio')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Spatial Audio</span>
+              <h3 class="product-title">Nexus Pro ANC Wireless Headphones</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span>4.9 (128 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$299.00</span>
+                  <span class="original-price">$349.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('Nexus Pro ANC Wireless Headphones', 299, './assets/hero_headphone.png')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card" data-category="wearables" data-price="199" data-rating="4.8">
+            <div class="product-card-top">
+              <span class="badge badge-hot product-badge-pos">HOT</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="./assets/product_smartwatch.png" 
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80';" 
+                   alt="Apex Titanium Cyber Smartwatch" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('Apex Titanium Smartwatch', 199, 'Wearables')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Wearables</span>
+              <h3 class="product-title">Apex Titanium Biometric Smartwatch</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span>4.8 (94 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$199.00</span>
+                  <span class="original-price">$249.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('Apex Titanium Biometric Smartwatch', 199, './assets/product_smartwatch.png')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card" data-category="keyboards" data-price="169" data-rating="5.0">
+            <div class="product-card-top">
+              <span class="badge badge-dark product-badge-pos">POPULAR</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="./assets/product_keyboard.png" 
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=80';" 
+                   alt="CyberDeck Mechanical Keyboard" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('CyberDeck Mechanical Keyboard', 169, 'Keyboards')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Keyboards</span>
+              <h3 class="product-title">CyberDeck Low-Profile Mechanical Board</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span>5.0 (210 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$169.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('CyberDeck Low-Profile Mechanical Board', 169, './assets/product_keyboard.png')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card" data-category="audio" data-price="149" data-rating="4.7">
+            <div class="product-card-top">
+              <span class="badge badge-sale product-badge-pos">20% OFF</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="./assets/product_earbuds.png" 
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=80';" 
+                   alt="Pulse Wireless Earbuds" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('Pulse True Wireless Earbuds', 149, 'Audio')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Wireless Audio</span>
+              <h3 class="product-title">Pulse True Wireless Earbuds + Case</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★☆</div>
+                <span>4.7 (82 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$149.00</span>
+                  <span class="original-price">$189.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('Pulse True Wireless Earbuds + Case', 149, './assets/product_earbuds.png')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 5 -->
+          <article class="product-card" data-category="accessories" data-price="119" data-rating="4.9">
+            <div class="product-card-top">
+              <span class="badge badge-neon product-badge-pos">NEW</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&auto=format&fit=crop&q=80" alt="Tech EDC Backpack" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('Vanguard Modular EDC Backpack', 119, 'Accessories')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Accessories</span>
+              <h3 class="product-title">Vanguard Waterproof Modular EDC Backpack</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★★</div>
+                <span>4.9 (67 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$119.00</span>
+                  <span class="original-price">$139.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('Vanguard Waterproof Modular EDC Backpack', 119, 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&auto=format&fit=crop&q=80')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 6 -->
+          <article class="product-card" data-category="accessories" data-price="89" data-rating="4.6">
+            <div class="product-card-top">
+              <span class="badge badge-dark product-badge-pos">LIMITED</span>
+              <button class="product-wishlist-btn" aria-label="Add to Wishlist"><i data-lucide="heart" style="width: 18px; height: 18px;"></i></button>
+              <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&auto=format&fit=crop&q=80" alt="Neon Charging Dock" class="product-img">
+              <button class="quick-view-btn" onclick="openQuickView('MagPulse Multi-Device Dock', 89, 'Accessories')">Quick View</button>
+            </div>
+            <div class="product-card-body">
+              <span class="product-category-label">Smart Power</span>
+              <h3 class="product-title">MagPulse 3-in-1 Wireless Fast Charging Dock</h3>
+              <div class="product-rating">
+                <div class="stars">★★★★☆</div>
+                <span>4.6 (43 reviews)</span>
+              </div>
+              <div class="product-card-footer">
+                <div class="price-box">
+                  <span class="current-price">$89.00</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('MagPulse 3-in-1 Wireless Charging Dock', 89, 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&auto=format&fit=crop&q=80')">
+                  <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         5. VALUE PROPOSITION GRID
+         ========================================== -->
+    <section class="value-props-section" id="features">
+      <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <div class="section-tag" style="justify-content: center;">
+            <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+            <span>GUARANTEED EXCELLENCE</span>
+          </div>
+          <h2 class="section-title">WHY CHOOSE NEXUS GEAR?</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Engineered without compromises. Designed for long-term endurance and peak audio clarity.</p>
+        </div>
+
+        <div class="value-grid">
+          
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i data-lucide="truck"></i>
+            </div>
+            <h3>Free Global Express</h3>
+            <p>Complimentary 2-day express shipping on all domestic orders over $99 with full real-time tracking.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i data-lucide="lock"></i>
+            </div>
+            <h3>256-Bit Encrypted</h3>
+            <p>State-of-the-art quantum SSL encryption ensuring your payment & data stay 100% confidential.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i data-lucide="rotate-ccw"></i>
+            </div>
+            <h3>30-Day Risk Free</h3>
+            <p>Try any gear in your setup for 30 full days. If you're not wowed, return it for a 100% full refund.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i data-lucide="headphones"></i>
+            </div>
+            <h3>24/7 Priority Support</h3>
+            <p>Direct line to tech specialists via live chat, email, or priority hotline anytime you need assist.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         6. TECH SPECS PROMO BANNER
+         ========================================== -->
+    <section class="promo-banner" id="specs">
+      <div class="container">
+        <div class="promo-box">
+          <div class="promo-content">
+            <div class="section-tag">
+              <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
+              <span>ARCHITECTURAL BREAKTHROUGH</span>
+            </div>
+            <h2>POWERED BY QUANTUM AUDIO CHIP v4.0</h2>
+            <p>Our custom silicon delivers microsecond driver response times with zero compression loss. Experience music and spatial gaming exactly as acoustic engineers intended.</p>
+            
+            <div class="promo-stats">
+              <div class="stat-item">
+                <h4>&lt; 5ms</h4>
+                <p>Ultra-Low Latency</p>
+              </div>
+              <div class="stat-item">
+                <h4>96kHz</h4>
+                <p>Hi-Res 24-Bit Audio</p>
+              </div>
+              <div class="stat-item">
+                <h4>65h</h4>
+                <p>Playtime Capacity</p>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <a href="#shop" class="btn btn-primary" style="padding: 1.1rem 2.2rem; font-size: 1.05rem;">
+              <span>Upgrade Your Setup</span>
+              <i data-lucide="zap"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ==========================================
+       7. NEWSLETTER & FOOTER
+       ========================================== -->
+  <footer class="footer" id="newsletter">
+    <div class="container">
+      
+      <!-- Newsletter Card -->
+      <div class="newsletter-card">
+        <div class="newsletter-info">
+          <h3>JOIN THE NEXUS CYBER CLUB</h3>
+          <p>Get exclusive early access to limited drops, 15% off your first order & weekly tech insights.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email Address">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Main Footer Multi-Column Grid -->
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="#" class="logo" style="margin-bottom: 1rem;">
+            <div class="logo-dot"></div>
+            <span>NEXUS</span>
+          </a>
+          <p>Designing premium, high-performance tech hardware for creators, gamers, and audiophiles worldwide.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="GitHub"><i data-lucide="github"></i></a>
+            <a href="#" class="social-icon" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Shop Store</h4>
+          <ul class="footer-links">
+            <li><a href="#shop" class="footer-link">Wireless Audio</a></li>
+            <li><a href="#shop" class="footer-link">Titanium Wearables</a></li>
+            <li><a href="#shop" class="footer-link">Mechanical Boards</a></li>
+            <li><a href="#shop" class="footer-link">EDC Accessories</a></li>
+            <li><a href="#shop" class="footer-link">Refurbished Drops</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Order Tracker</a></li>
+            <li><a href="#" class="footer-link">Shipping & Returns</a></li>
+            <li><a href="#" class="footer-link">Warranty Claim</a></li>
+            <li><a href="#" class="footer-link">System Drivers</a></li>
+            <li><a href="#" class="footer-link">Contact Tech Team</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">About Nexus</a></li>
+            <li><a href="#" class="footer-link">Sustainability</a></li>
+            <li><a href="#" class="footer-link">Press & Media</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Badges -->
+      <div class="footer-bottom">
+        <p>© 2026 NEXUS TECH INC. ALL RIGHTS RESERVED. CRAFTED WITH PRECISION.</p>
+        <div class="payment-badges">
+          <i data-lucide="credit-card" title="Credit Cards"></i>
+          <i data-lucide="shield" title="SSL Encrypted"></i>
+          <i data-lucide="check-circle" title="Verified Store"></i>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       8. SLIDE-OVER CART DRAWER & TOAST CONTAINER
+       ========================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer" id="cart-drawer">
+      
+      <div class="cart-header">
+        <h3>
+          <i data-lucide="shopping-bag" style="color: var(--accent-neon);"></i>
+          <span>YOUR CART</span>
+        </h3>
+        <button class="close-drawer-btn" id="close-drawer-btn" aria-label="Close Cart">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="cart-body" id="cart-body">
+        <!-- Cart Items populated dynamically via JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$667.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Express Shipping</span>
+          <span style="color: var(--accent-neon);">FREE</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cart-total">$667.00</span>
+        </div>
+        <button class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;" onclick="handleCheckout()">
+          <span>Proceed to Checkout</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+
+  <!-- ==========================================
+       9. INTERACTIVE SPA VANILLA JS CONTROLLER
+       ========================================== -->
+  <script>
+    // Initial Cart State
+    let cartItems = [
+      { id: 1, title: 'Nexus Pro ANC Wireless Headphones', price: 299, qty: 1, img: './assets/hero_headphone.png' },
+      { id: 2, title: 'Apex Titanium Biometric Smartwatch', price: 199, qty: 1, img: './assets/product_smartwatch.png' },
+      { id: 3, title: 'CyberDeck Low-Profile Mechanical Board', price: 169, qty: 1, img: './assets/product_keyboard.png' }
+    ];
+
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderCart();
+      setupCategoryFilters();
+      setupSearch();
+    });
+
+    // Toggle Cart Drawer
+    const cartToggleBtn = document.getElementById('cart-toggle-btn');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const cartOverlay = document.getElementById('cart-drawer-overlay');
+
+    cartToggleBtn.addEventListener('click', () => cartOverlay.classList.add('open'));
+    closeDrawerBtn.addEventListener('click', () => cartOverlay.classList.remove('open'));
+    cartOverlay.addEventListener('click', (e) => {
+      if (e.target === cartOverlay) cartOverlay.classList.remove('open');
+    });
+
+    // Render Cart State
+    function renderCart() {
+      const cartBody = document.getElementById('cart-body');
+      const cartCountBadge = document.getElementById('cart-count');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const totalEl = document.getElementById('cart-total');
+
+      // Update badge count
+      const totalQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
+      cartCountBadge.textContent = totalQty;
+
+      if (cartItems.length === 0) {
+        cartBody.innerHTML = `<div class="cart-empty-msg"><i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.4;"></i><p>Your shopping cart is empty.</p></div>`;
+        subtotalEl.textContent = '$0.00';
+        totalEl.textContent = '$0.00';
+        lucide.createIcons();
+        return;
+      }
+
+      let subtotal = 0;
+      cartBody.innerHTML = cartItems.map((item, index) => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="cart-item">
+            <img src="${item.img}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&auto=format&fit=crop';" alt="${item.title}" class="cart-item-img">
+            <div class="cart-item-details">
+              <div class="cart-item-title">${item.title}</div>
+              <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+              <div class="cart-item-qty">
+                <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                <span>${item.qty}</span>
+                <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+              </div>
+            </div>
+            <button class="remove-item-btn" onclick="removeItem(${index})" aria-label="Remove Item">
+              <i data-lucide="trash-2" style="width: 18px; height: 18px;"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      totalEl.textContent = `$${subtotal.toFixed(2)}`;
+      lucide.createIcons();
+    }
+
+    // Add To Cart Handler
+    function addToCart(title, price, img) {
+      const existing = cartItems.find(item => item.title === title);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cartItems.push({ id: Date.now(), title, price, qty: 1, img });
+      }
+      renderCart();
+      showToast(`Added "${title}" to your cart!`);
+    }
+
+    function updateQty(index, change) {
+      cartItems[index].qty += change;
+      if (cartItems[index].qty <= 0) {
+        cartItems.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function removeItem(index) {
+      const removed = cartItems.splice(index, 1);
+      renderCart();
+      showToast(`Removed "${removed[0].title}" from cart.`);
+    }
+
+    // Toast Feedback
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `
+        <i data-lucide="check-circle" class="toast-icon"></i>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // Category Filter Buttons
+    function setupCategoryFilters() {
+      const pills = document.querySelectorAll('.pill-btn');
+      const cards = document.querySelectorAll('.product-card');
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const cat = pill.dataset.category;
+
+          cards.forEach(card => {
+            if (cat === 'all' || card.dataset.category === cat) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // Instant Search Input
+    function setupSearch() {
+      const searchInput = document.getElementById('search-input');
+      const cards = document.querySelectorAll('.product-card');
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const title = card.querySelector('.product-title').textContent.toLowerCase();
+          if (title.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Newsletter Submission
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      showToast(`Thank you for subscribing with ${input.value}! Check your inbox.`);
+      input.value = '';
+    }
+
+    // Quick View Action
+    function openQuickView(title, price, category) {
+      showToast(`Quick View: ${title} ($${price}) - ${category}`);
+    }
+
+    // Checkout Action
+    function handleCheckout() {
+      if (cartItems.length === 0) {
+        showToast('Your cart is empty!');
+        return;
+      }
+      showToast('Proceeding to secure checkout...');
+    }
+  </script>
+</body>
+</html>
